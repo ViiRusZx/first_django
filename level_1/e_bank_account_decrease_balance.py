@@ -8,10 +8,23 @@
     3. Затем уменьшите баланс до отрицательного значения и посмотрите на результат
 """
 
-
-class BankAccount:
-    pass  # код писать тут
+from d_bank_account_increase_balance import BankAccount
 
 
-if __name__ == '__main__':
-    pass  # код писать тут
+class BankAccount1:
+    def __init__(self):
+        self.acc = BankAccount(owner_full_name="Aleksey", balance=500)
+        self.balance = self.acc.balance
+
+    def decrease_balance(self, income: float) -> str:
+        self.acc.balance -= income
+        if self.acc.balance < 0:
+            raise ValueError("БАЛАНС НЕ МОЖЕТ БЫТЬ МЕНЬШЕ ОТРИЦАТЕЛЬНЫМ")
+        else:
+            return f"{self.acc.owner_full_name}, {self.acc.balance}"
+
+
+if __name__ == "__main__":
+    ekz = BankAccount1()
+    print(ekz.decrease_balance(199))
+    print(ekz.decrease_balance(600))
