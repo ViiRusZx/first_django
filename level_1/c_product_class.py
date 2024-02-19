@@ -11,7 +11,8 @@ from os import name
 
 
 class Product:
-    def __init__(self, name: str = None, description: str = None, price: int = None, weight: float = None) -> None:
+    def __init__(self, name: str = None, description: str = None, price: int = None,
+                 weight: float = None) -> None:
         self.name = name
         self.discription = description
         self.price = price
@@ -25,7 +26,8 @@ class Product:
 
 
 if __name__ == "__main__":
-    product = Product(name="Молоко", description="Молочное", price=100, weight=0.5)
+    product = Product(name = "Молоко", description = "Молочное", price = 100,
+                      weight = 0.5)
     product.show()
-    product1 = Product(name="Молоко", price=100, weight=0.5)
+    product1 = Product(name = "Молоко", price = 100, weight = 0.5)
     product1.show()

@@ -20,6 +20,6 @@ class BankAccount:
 
 
 if __name__ == "__main__":
-    ekz = BankAccount(owner_full_name="Aleksey", balance=0)
+    ekz = BankAccount(owner_full_name = "Aleksey", balance = 0)
     print(ekz.balance, ekz.owner_full_name)
     print(ekz.increase_balance(100))

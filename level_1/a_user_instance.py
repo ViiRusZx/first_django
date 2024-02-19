@@ -22,6 +22,6 @@ class User:
 if __name__ == "__main__":
     # код писать тут
 
-    ekz = User(name="Aleksey", username="Viirus", age=37, phone="112")
+    ekz = User(name = "Aleksey", username = "Viirus", age = 37, phone = "112")
 
     ekz.lets_print()

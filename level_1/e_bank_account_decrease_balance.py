@@ -13,7 +13,7 @@ from d_bank_account_increase_balance import BankAccount
 
 class BankAccount1:
     def __init__(self):
-        self.acc = BankAccount(owner_full_name="Aleksey", balance=500)
+        self.acc = BankAccount(owner_full_name = "Aleksey", balance = 500)
         self.balance = self.acc.balance
 
     def decrease_balance(self, income: float) -> str:

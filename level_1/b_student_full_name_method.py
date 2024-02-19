@@ -20,9 +20,10 @@ class Student:
         full_info = f"Полная информация о студенте: {self.name} {self.surname} {self.faculty} {self.course}"
         return full_info
 
+
 if __name__ == '__main__':
-    student = Student(name="Ivan", surname="Ivanov", faculty="IT", course=3)
+    student = Student(name = "Ivan", surname = "Ivanov", faculty = "IT", course = 3)
     ask = student.get_full_name()
     ask_full = student.get_full_information()
     print(ask)
-    print (ask_full)
+    print(ask_full)
