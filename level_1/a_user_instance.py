@@ -12,7 +12,16 @@ class User:
         self.age = age
         self.phone = phone
 
+    def _show(self) -> str:
+        return f"Информация о пользователе: {self.name}, {self.username}, {self.age}, {self.phone}"
 
-if __name__ == '__main__':
-    pass  # код писать тут
+    def lets_print(self) -> None:
+        print(self._show())
 
+
+if __name__ == "__main__":
+    # код писать тут
+
+    ekz = User(name="Aleksey", username="Viirus", age=37, phone="112")
+
+    ekz.lets_print()
