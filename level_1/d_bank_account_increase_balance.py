@@ -15,11 +15,16 @@ class BankAccount:
         self.balance = balance
 
     def increase_balance(self, income: float) -> str:
-        self.balance += income
-        return f"{self.owner_full_name}, {self.balance}"
+        try:
+            if income < 0:
+                raise ValueError("Нельзя вводить отрицательные значения")
+            self.balance += income
+            return f"{self.owner_full_name}, {self.balance}"
+        except ValueError as err:
+            return err
 
 
 if __name__ == "__main__":
     ekz = BankAccount(owner_full_name = "Aleksey", balance = 0)
-    print(ekz.balance, ekz.owner_full_name)
-    print(ekz.increase_balance(100))
+
+    print(ekz.increase_balance(200))
