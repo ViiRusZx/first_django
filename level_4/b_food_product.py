@@ -18,16 +18,27 @@ class Product:
         self.title = title
         self.quantity = quantity
 
-    def get_full_info(self):
+    def get_full_info(self) -> str:
         return f'Product {self.title}, {self.quantity} in stock.'
 
-    def is_available(self):
+    def is_available(self) -> bool:
         return self.quantity > 0
 
 
 class FoodProduct(Product):
-    pass  # код писать тут
+    def __init__(self, title, quantity, expiration_date):
+        super().__init__(title, quantity)
+        self.expiration_date = expiration_date
+
+    def is_available(self) -> bool:
+        return super().is_available() and datetime.now() < self.expiration_date
 
 
 if __name__ == '__main__':
-    pass  # код писать тут
+    product = Product('Milk', 1)
+    food_product = FoodProduct('Bread', 1, datetime(2022, 1, 1))
+    print(product.get_full_info())
+    print(product.is_available())
+
+    print(food_product.get_full_info())
+    print(food_product.is_available())

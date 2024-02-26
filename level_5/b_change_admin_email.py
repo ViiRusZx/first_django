@@ -9,27 +9,27 @@
 
 
 class User:
-    def __init__(self, username: str, email: str):
+    def __init__(self, username: str, email: str) -> None:
         self.username = username
         self.email = email
 
-    def change_email(self, new_email):
+    def change_email(self, new_email) -> None:
         self.email = new_email
 
 
 class AdminUserMixin:
     def change_email(self, new_email):
-        raise SystemError('It is impossible to change the email address of the administrator')
+        raise SystemError(
+                'It is impossible to change the email address of the administrator')
 
 
-class AdminUser(User, AdminUserMixin):
-    def change_user_info(self, user: User, new_username: str, new_email: str):
+class AdminUser(AdminUserMixin, User):
+    def change_user_info(self, user: User, new_username: str, new_email: str) -> None:
         user.username = new_username
         user.email = new_email
 
 
 if __name__ == '__main__':
-    admin_user = AdminUser(username='python_dev', email='learnpython@yandex.ru')
+    admin_user = AdminUser(username = 'python_dev', email = 'learnpython@yandex.ru')
     admin_user.change_email('new_email@gmail.com')
     print(admin_user.email)
-

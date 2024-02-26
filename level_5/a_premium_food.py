@@ -16,15 +16,26 @@ class Product:
         self.title = title
         self.price = price
 
-    def get_product_info(self):
+    def get_product_info(self) -> str:
         return f'Product title: {self.title}, price: {self.price}'
 
 
 class FoodProductMixin:
-    def is_premium_food(self):
+    def is_premium_food(self) -> bool:
         return self.price > 10
 
 
-if __name__ == '__main__':
-    pass  # код писать тут
+class FoodProduct(Product, FoodProductMixin):
+    def get_product_info(self) -> str:
+        if self.is_premium_food():
+            return super().get_product_info() + ' (Premium)'
+        else:
+            return super().get_product_info()
 
+
+if __name__ == '__main__':
+    food_product = FoodProduct(title = 'Avocado', price = 12)
+    print(food_product.get_product_info())
+
+    fud_product_milk = FoodProduct(title = 'Milk', price = 5)
+    print(fud_product_milk.get_product_info())
