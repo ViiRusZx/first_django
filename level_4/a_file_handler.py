@@ -20,18 +20,30 @@ class FileHandler:
     def __init__(self, filename):
         self.filename = filename
 
-    def read(self):
+    def read(self) -> str:
         with open(self.filename, 'r') as file:
             return file.read()
 
 
 class JSONHandler(FileHandler):
-    pass  # код писать тут
+
+    def read(self) -> dict:
+        with open(self.filename, 'r') as file:
+            return json.load(file)
 
 
 class CSVHandler(FileHandler):
-    pass  # код писать тут
+    def read(self) -> list:
+        with open(self.filename, 'r') as file:
+            return list(csv.DictReader(file))
 
 
 if __name__ == '__main__':
-    pass  # код писать тут
+    file_handler = FileHandler('data/text.txt')
+    print(file_handler.read())
+
+    json_handler = JSONHandler('data/recipes.json')
+    print(json_handler.read())
+
+    csv_handler = CSVHandler('data/user_info.csv')
+    print(csv_handler.read())
