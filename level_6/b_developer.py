@@ -35,9 +35,17 @@ class SuperAdminMixin(AdminMixin):
         employee.salary -= amount
 
 
-# код писать тут
+class Developer(ItDepartmentEmployee, SuperAdminMixin):
+    def __init__(self, name: str, surname: str, age: int, salary: float, language: str):
+        super().__init__(name, surname, age, salary)
+        self.language = language
+
+    def get_info(self):
+        return f'{super().get_info()} and language: {self.language}'
 
 
 if __name__ == '__main__':
-    pass  # код писать тут
-
+    dev = Developer('Ivan', 'Ivanov', 25, 1000, 'Python')
+    print(dev.get_info())
+    dev.decrease_salary(employee=dev, amount=100)
+    dev.increase_salary(employee=dev, amount=100)  # код писать тут
